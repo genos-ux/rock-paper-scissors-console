@@ -107,4 +107,11 @@ for(let i = 0; i < 5; i++)
     playRound(humanSelection,computerSelection);
 }
 
-console.log(computerScore);
+if(computerScore > humanScore)
+{
+    console.log("Computer wins!");
+}
+else
+{
+    console.log("You win!");
+}
