@@ -8,8 +8,13 @@ A simple JavaScript console-based Rock, Paper, Scissors game where users can pla
 - [Usage](#usage)
 - [License](#license)
 
-#features
+# features
 - Play Rock,Paper,Scissors against the computer.
 - Randomized computer choices to ensure fair play.
 - Display results with feedback on each round.
 - Option to play multiple round in a row.
+
+# installation
+To clone the repository, use:
+```bash
+git clone https://github.com/your-username/your-repo.git

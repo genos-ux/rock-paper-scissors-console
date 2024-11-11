@@ -114,16 +114,16 @@ for(let i = 0; i < 5; i++)
     playRound(humanSelection,computerSelection);
 }
 
-if(computerScore > humanScore)
-{
-    console.log("Computer wins!");
-}
-else if(humanScore > computerScore)
+if(computerScore < humanScore)
 {
     console.log("You win!");
 }
+else if(humanScore < computerScore)
+{
+    console.log("You lose!");
+}
 
-else
+else if (humanScore == computerScore)
 {
     console.log("You tie!");
 }
