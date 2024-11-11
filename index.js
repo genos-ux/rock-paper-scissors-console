@@ -1,5 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
+let msg = "";
+let round = 0;
 
 function getRandomChoice(max)
 {
@@ -21,10 +23,10 @@ const getHumanChoice = () =>
     return choice.toLowerCase();
 }
 
-function playGround(humanChoice,computerChoice)
-{
-    let msg = "";
 
+
+function playRound(humanChoice,computerChoice)
+{
     if(humanChoice == "rock")
     {
         switch(computerChoice)
@@ -34,9 +36,12 @@ function playGround(humanChoice,computerChoice)
                 break;
             case "paper":
                 msg = "You lose! Paper beats Rock.";
+                computerScore++;
                 break;
             case "scissors":
                 msg = "You win! Rock beats scissors";
+                humanChoice++;
+                break;
 
         }
     }
@@ -50,9 +55,11 @@ function playGround(humanChoice,computerChoice)
                 break;
             case "scissors":
                 msg = "You lose! Scissors beats Paper.";
+                computerScore++;
                 break;
             case "rock":
                 msg = "You win! Paper beats Rock";
+                humanScore++;
                 break;
 
         }
@@ -67,13 +74,37 @@ function playGround(humanChoice,computerChoice)
                 break;
             case "rock":
                 msg = "You lose! Rock beats Scissors.";
+                computerScore++;
                 break;
             case "paper":
                 msg = "You win! Paper beats Scissors";
+                humanScore++;
                 break;
 
         }
     }
 
+    else
+    {
+        msg = "Please choose rock, paper or scissors.";
+    }
 
+    console.log(msg);
 }
+
+
+
+// while(round < 5)
+// {
+//     playGround(humanSelection,computerSelection);
+//     round++;
+// }
+for(let i = 0; i < 5; i++)
+{
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+
+    playRound(humanSelection,computerSelection);
+}
+
+console.log(computerScore);
