@@ -4,8 +4,9 @@ A simple JavaScript console-based Rock, Paper, Scissors game where users can pla
 
 ## Table of Contents
 - [Features](#features)
+- [How to play](#howtoplay)
 - [Installation](#installation)
-- [Usage](#usage)
+
 - [License](#license)
 
 # features
@@ -14,7 +15,12 @@ A simple JavaScript console-based Rock, Paper, Scissors game where users can pla
 - Display results with feedback on each round.
 - Option to play multiple round in a row.
 
+# how to play
+- Open the index.html file in your browser.
+- Open the browser's console(usually by pressing F12).
+- Follow the prompt to enter your choice(Rock,Paper or Scissors).
+
 # installation
 To clone the repository, use:
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/your-username/your-repo.git.
