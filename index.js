@@ -20,9 +20,16 @@ const getComputerChoice = () =>
 const getHumanChoice = () =>
 {
     let choice = prompt("Choose Rock,Paper or Scissors");
-    return choice.toLowerCase();
-}
+    if(choice != null)
+    {
+        return choice.toLowerCase();
+    }
+    else
+    {
+        getHumanChoice();
+    }
 
+}
 
 
 function playRound(humanChoice,computerChoice)
@@ -111,7 +118,12 @@ if(computerScore > humanScore)
 {
     console.log("Computer wins!");
 }
-else
+else if(humanScore > computerScore)
 {
     console.log("You win!");
+}
+
+else
+{
+    console.log("You tie!");
 }
