@@ -2,6 +2,7 @@ let humanScore = 0;
 let computerScore = 0;
 let msg = "";
 let round = 0;
+let fullName = prompt("Your name pls?","Jane Doe");
 
 function getRandomChoice(max)
 {
@@ -47,7 +48,7 @@ function playRound(humanChoice,computerChoice)
                 break;
             case "scissors":
                 msg = "You win! Rock beats scissors";
-                humanChoice++;
+                humanScore++;
                 break;
 
         }
@@ -114,16 +115,20 @@ for(let i = 0; i < 5; i++)
     playRound(humanSelection,computerSelection);
 }
 
+console.log(fullName+ "'s score: " + humanScore);
+console.log("Computer's score: " + computerScore);
+
 if(computerScore < humanScore)
 {
-    console.log("You win!");
+
+    console.log(fullName + " wins! Congrats!!");
 }
 else if(humanScore < computerScore)
 {
-    console.log("You lose!");
+    console.log(fullName + " lose! Oops try again!!");
 }
 
 else if (humanScore == computerScore)
 {
-    console.log("You tie!");
+    console.log(fullName + " tie!");
 }
