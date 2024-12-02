@@ -149,9 +149,14 @@ paperButton.addEventListener('click',(event) => {
 
     round++;
 
-    if(round == 5)
+    if(round < 5)
     {
         displayScore();
+    }
+
+    else if (round == 5)
+    {
+        displayBoard();
     }
 
     else if(round > 5)
@@ -187,10 +192,15 @@ rockButton.addEventListener('click',(event)=> {
 
     round++;
 
-    if(round == 5)
-        {
-            displayScore();
-        }
+    if(round < 5)
+    {
+        displayScore();
+    }
+
+    else if (round == 5)
+    {
+        displayBoard();
+    }
 
     else if(round > 5)
     {
@@ -225,10 +235,15 @@ scissorButton.addEventListener('click',(event)=> {
 
     round++;
 
-    if(round == 5)
-        {
-            displayScore();
-        }
+    if(round < 5)
+    {
+        displayScore();
+    }
+
+    else if (round == 5)
+    {
+        displayBoard();
+    }
 
     else if(round > 5)
     {
@@ -247,22 +262,26 @@ function displayScore()
         <p>${fullName}'s score: ${humanScore}</p>
         <p>Computer's score: ${computerScore}</p>
     `
+}
+
+function displayBoard()
+{
 
     if(computerScore < humanScore)
-    {
-        //console.log(fullName + " wins! Congrats!!");
-        display.innerHTML += `<p>${fullName} wins! Congrats!!</p><br>`;
-    }
-    else if(humanScore < computerScore)
-    {
-        //console.log(fullName + " lose! Oops try again!!");
-        display.innerHTML += `<p>${fullName} lose! Oops try again!!</p><br>`;
-    }
+        {
+            //console.log(fullName + " wins! Congrats!!");
+            display.innerHTML += `<p>${fullName} wins! Congrats!!</p><br>`;
+        }
+        else if(humanScore < computerScore)
+        {
+            //console.log(fullName + " lose! Oops try again!!");
+            display.innerHTML += `<p>${fullName} lose! Oops try again!!</p><br>`;
+        }
 
-    else if (humanScore == computerScore)
-    {
-        //console.log(fullName + " tie!");
-        display.innerHTML += `<p>${fullName} tie!</p><br>`;
-    }
+        else if (humanScore == computerScore)
+        {
+            //console.log(fullName + " tie!");
+            display.innerHTML += `<p>${fullName} tie!</p><br>`;
+        }
 
 }
