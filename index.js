@@ -160,9 +160,9 @@ paperButton.addEventListener('click',(event) => {
 
 })
 
-rockButton.addEventListener('click',()=> {
+rockButton.addEventListener('click',(event)=> {
 
-    switch(computerSelection)
+    switch(getComputerChoice())
     {
         case "rock":
             msg = "You tie!";
@@ -177,29 +177,59 @@ rockButton.addEventListener('click',()=> {
             break;
 
     }
+
+    round++;
+
+    if(round > 5)
+    {
+        event.preventDefault();
+    }
+
+    else
+    {
+        console.log(humanScore);
+    }
 })
 
-// scissorButton.addEventListener('click',()=> {
-//     switch(computerSelection)
-//     {
-//         case "scissors":
-//             msg = "You tie!";
-//             break;
-//         case "rock":
-//             msg = "You lose! Rock beats Scissors.";
-//             computerScore++;
-//             break;
-//         case "paper":
-//             msg = "You win! Paper beats Scissors";
-//             humanScore++;
-//             break;
 
-//     }
+scissorButton.addEventListener('click',(event)=> {
+    switch(getComputerChoice())
+    {
+        case "scissors":
+            msg = "You tie!";
+            break;
+        case "rock":
+            msg = "You lose! Rock beats Scissors.";
+            computerScore++;
+            break;
+        case "paper":
+            msg = "You win! Paper beats Scissors";
+            humanScore++;
+            break;
 
-// })
+    }
 
-// console.log(fullName+ "'s score: " + humanScore);
-// console.log("Computer's score: " + computerScore);
+    round++;
+
+    if(round > 5)
+    {
+        event.preventDefault();
+    }
+
+    else
+    {
+        displayScore();
+    }
+
+})
+
+if(round == 5)
+{
+    console.log(fullName+ "'s score: " + humanScore);
+    console.log("Computer's score: " + computerScore);
+}
+
+
 
 
 function displayScore()
