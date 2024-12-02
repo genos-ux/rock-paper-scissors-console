@@ -132,7 +132,8 @@ paperButton.addEventListener('click',(event) => {
     {
         case "paper":
             msg = "You tie!";
-
+            computerScore++;
+            humanScore++;
             break;
 
         case "scissors":
@@ -148,16 +149,20 @@ paperButton.addEventListener('click',(event) => {
 
     round++;
 
-    if(round > 5)
+    if(round == 5)
+    {
+        displayScore();
+    }
+
+    else if(round > 5)
     {
         event.preventDefault();
     }
 
-    else
-    {
-        console.log(humanScore);
-    }
-
+    // else
+    // {
+    //     displayScore();
+    // }
 })
 
 rockButton.addEventListener('click',(event)=> {
@@ -166,6 +171,8 @@ rockButton.addEventListener('click',(event)=> {
     {
         case "rock":
             msg = "You tie!";
+            computerScore++;
+            humanScore++;
             break;
         case "paper":
             msg = "You lose! Paper beats Rock.";
@@ -180,15 +187,20 @@ rockButton.addEventListener('click',(event)=> {
 
     round++;
 
-    if(round > 5)
+    if(round == 5)
+        {
+            displayScore();
+        }
+
+    else if(round > 5)
     {
         event.preventDefault();
     }
 
-    else
-    {
-        console.log(humanScore);
-    }
+    // else
+    // {
+    //     displayScore();
+    // }
 })
 
 
@@ -197,6 +209,8 @@ scissorButton.addEventListener('click',(event)=> {
     {
         case "scissors":
             msg = "You tie!";
+            humanScore++;
+            computerScore++;
             break;
         case "rock":
             msg = "You lose! Rock beats Scissors.";
@@ -211,33 +225,27 @@ scissorButton.addEventListener('click',(event)=> {
 
     round++;
 
-    if(round > 5)
+    if(round == 5)
+        {
+            displayScore();
+        }
+
+    else if(round > 5)
     {
         event.preventDefault();
     }
 
-    else
-    {
-        displayScore();
-    }
+
 
 })
-
-if(round == 5)
-{
-    console.log(fullName+ "'s score: " + humanScore);
-    console.log("Computer's score: " + computerScore);
-}
-
-
 
 
 function displayScore()
 {
     display.innerHTML =
     `
-        <p>${fullName}'s score: ${humanScore}</p> <br>
-        <p>Computer's score: ${computerScore}</p><br>
+        <p>${fullName}'s score: ${humanScore}</p>
+        <p>Computer's score: ${computerScore}</p>
     `
 
     if(computerScore < humanScore)
