@@ -4,6 +4,11 @@ let msg = "";
 let round = 0;
 let fullName = prompt("Your name pls?","Jane Doe");
 
+const rockButton = document.querySelector('.rock');
+const paperButton = document.querySelector('.paper');
+const scissorButton = document.querySelector('.scissor');
+const display = document.querySelector('.display');
+
 function getRandomChoice(max)
 {
     return Math.floor(Math.random() * max);
@@ -107,13 +112,12 @@ function playRound(humanChoice,computerChoice)
 //     playGround(humanSelection,computerSelection);
 //     round++;
 // }
-for(let i = 0; i < 5; i++)
-{
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
 
-    playRound(humanSelection,computerSelection);
-}
+
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
+
+playRound(humanSelection,computerSelection);
 
 console.log(fullName+ "'s score: " + humanScore);
 console.log("Computer's score: " + computerScore);
