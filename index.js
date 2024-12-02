@@ -108,11 +108,6 @@ rockButton.addEventListener('click',(event)=> {
     {
         event.preventDefault();
     }
-
-    // else
-    // {
-    //     displayScore();
-    // }
 })
 
 
@@ -132,7 +127,6 @@ scissorButton.addEventListener('click',(event)=> {
             msg = "You win! Paper beats Scissors";
             humanScore++;
             break;
-
     }
 
     round++;
@@ -151,11 +145,7 @@ scissorButton.addEventListener('click',(event)=> {
     {
         event.preventDefault();
     }
-
-
-
 })
-
 
 function displayScore()
 {
@@ -168,7 +158,6 @@ function displayScore()
 
 function displayBoard()
 {
-
     if(computerScore < humanScore)
     {
         //console.log(fullName + " wins! Congrats!!");
