@@ -2,7 +2,8 @@ let humanScore = 0;
 let computerScore = 0;
 let msg = "";
 let round = 0;
-let fullName = prompt("Your name pls?","Jane Doe");
+//let fullName = prompt("Your name pls?","Jane Doe");
+let fullName = "Jane";
 
 const rockButton = document.querySelector('.rock');
 const paperButton = document.querySelector('.paper');
@@ -25,19 +26,19 @@ const getComputerChoice = () =>
     return choice[index];
 }
 
-const getHumanChoice = () =>
-{
-    let choice = prompt("Choose Rock,Paper or Scissors");
-    if(choice != null)
-    {
-        return choice.toLowerCase();
-    }
-    else
-    {
-        getHumanChoice();
-    }
+// const getHumanChoice = () =>
+// {
+//     let choice = prompt("Choose Rock,Paper or Scissors");
+//     if(choice != null)
+//     {
+//         return choice.toLowerCase();
+//     }
+//     else
+//     {
+//         getHumanChoice();
+//     }
 
-}
+// }
 
 
 function playRound(humanChoice,computerChoice)
@@ -104,7 +105,8 @@ function playRound(humanChoice,computerChoice)
         msg = "Please choose rock, paper or scissors.";
     }
 
-    console.log(msg);
+    display.innerHTML += `${msg}`;
+    //console.log(msg);
 }
 
 
@@ -118,47 +120,111 @@ function playRound(humanChoice,computerChoice)
 
 
 // let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
 
-playRound(humanSelection,computerSelection);
 
-rockButton.addEventListener(()=>{
 
-    playRound("rock",computerSelection);
+
+//playRound(humanSelection,computerSelection);
+
+paperButton.addEventListener('click',(event) => {
+
+    switch(getComputerChoice())
+    {
+        case "paper":
+            msg = "You tie!";
+
+            break;
+
+        case "scissors":
+            msg = "You lose! Scissors beats Paper.";
+            computerScore++;
+            break;
+
+        case "rock":
+            msg = "You win! Rock beats Paper.";
+            humanScore++;
+            break;
+    }
+
+    round++;
+
+    if(round > 5)
+    {
+        event.preventDefault();
+    }
+
+    else
+    {
+        console.log(humanScore);
+    }
 
 })
 
-paperButton.addEventListener(()=> {
-    playRound("paper",computerSelection);
+rockButton.addEventListener('click',()=> {
+
+    switch(computerSelection)
+    {
+        case "rock":
+            msg = "You tie!";
+            break;
+        case "paper":
+            msg = "You lose! Paper beats Rock.";
+            computerScore++;
+            break;
+        case "scissors":
+            msg = "You win! Rock beats scissors";
+            humanScore++;
+            break;
+
+    }
 })
 
-scissorButton.addEventListener(()=> {
-    playRound("scissor",computerSelection);
-})
+// scissorButton.addEventListener('click',()=> {
+//     switch(computerSelection)
+//     {
+//         case "scissors":
+//             msg = "You tie!";
+//             break;
+//         case "rock":
+//             msg = "You lose! Rock beats Scissors.";
+//             computerScore++;
+//             break;
+//         case "paper":
+//             msg = "You win! Paper beats Scissors";
+//             humanScore++;
+//             break;
 
-console.log(fullName+ "'s score: " + humanScore);
-console.log("Computer's score: " + computerScore);
+//     }
 
-display.innerHTML =
-`
-    <p>${fullName}'s score: {humanScore}</p>
-    <p>Computer's score: ${computerScore}</p>
-`
+// })
 
-if(computerScore < humanScore)
+// console.log(fullName+ "'s score: " + humanScore);
+// console.log("Computer's score: " + computerScore);
+
+
+function displayScore()
 {
+    display.innerHTML =
+    `
+        <p>${fullName}'s score: ${humanScore}</p> <br>
+        <p>Computer's score: ${computerScore}</p><br>
+    `
 
-    //console.log(fullName + " wins! Congrats!!");
-    display.innerHTML += `<p>${fullName} wins! Congrats!!</p>`;
-}
-else if(humanScore < computerScore)
-{
-    //console.log(fullName + " lose! Oops try again!!");
-    display.innerHTML += `<p>${fullName} lose! Oops try again!!</p>`;
-}
+    if(computerScore < humanScore)
+    {
+        //console.log(fullName + " wins! Congrats!!");
+        display.innerHTML += `<p>${fullName} wins! Congrats!!</p><br>`;
+    }
+    else if(humanScore < computerScore)
+    {
+        //console.log(fullName + " lose! Oops try again!!");
+        display.innerHTML += `<p>${fullName} lose! Oops try again!!</p><br>`;
+    }
 
-else if (humanScore == computerScore)
-{
-    //console.log(fullName + " tie!");
-    display.innerHTML += `<p>{fullName} tie!</p>`;
+    else if (humanScore == computerScore)
+    {
+        //console.log(fullName + " tie!");
+        display.innerHTML += `<p>${fullName} tie!</p><br>`;
+    }
+
 }
