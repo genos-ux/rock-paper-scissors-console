@@ -14,6 +14,8 @@ function getRandomChoice(max)
     return Math.floor(Math.random() * max);
 }
 
+
+
 const getComputerChoice = () =>
 {
     let choice = ["rock","paper","scissors"];
@@ -107,6 +109,7 @@ function playRound(humanChoice,computerChoice)
 
 
 
+
 // while(round < 5)
 // {
 //     playGround(humanSelection,computerSelection);
@@ -114,25 +117,48 @@ function playRound(humanChoice,computerChoice)
 // }
 
 
-let humanSelection = getHumanChoice();
+// let humanSelection = getHumanChoice();
 let computerSelection = getComputerChoice();
 
 playRound(humanSelection,computerSelection);
 
+rockButton.addEventListener(()=>{
+
+    playRound("rock",computerSelection);
+
+})
+
+paperButton.addEventListener(()=> {
+    playRound("paper",computerSelection);
+})
+
+scissorButton.addEventListener(()=> {
+    playRound("scissor",computerSelection);
+})
+
 console.log(fullName+ "'s score: " + humanScore);
 console.log("Computer's score: " + computerScore);
+
+display.innerHTML =
+`
+    <p>${fullName}'s score: {humanScore}</p>
+    <p>Computer's score: ${computerScore}</p>
+`
 
 if(computerScore < humanScore)
 {
 
-    console.log(fullName + " wins! Congrats!!");
+    //console.log(fullName + " wins! Congrats!!");
+    display.innerHTML += `<p>${fullName} wins! Congrats!!</p>`;
 }
 else if(humanScore < computerScore)
 {
-    console.log(fullName + " lose! Oops try again!!");
+    //console.log(fullName + " lose! Oops try again!!");
+    display.innerHTML += `<p>${fullName} lose! Oops try again!!</p>`;
 }
 
 else if (humanScore == computerScore)
 {
-    console.log(fullName + " tie!");
+    //console.log(fullName + " tie!");
+    display.innerHTML += `<p>{fullName} tie!</p>`;
 }
